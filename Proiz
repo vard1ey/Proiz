@@ -1,0 +1,39 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Введите первый множитель: ");
+        int a = scan.nextInt();
+        System.out.print("Введите второй множитель: ");
+        int b = scan.nextInt();
+        int res = Proiz(a, b);
+        System.out.printf("%d * %d = %d", a, b, res);
+    }
+    static int  Proiz(int a, int b){
+        int res = a;
+        int i = b;
+        if (a < 0 && b > 0) {
+            for(i = i; i != 0; i--){
+                res -= b;
+            }
+            res--;
+        }
+        else if (b < 0 && a > 0) {
+            for(i = i; i != 0; i++){
+                res += -b;
+            }
+            res++;
+            res = -res;
+        }
+        else if (a == 0 || b == 0) {
+            return 0;
+        }
+        else {
+            for (i = i; i != 0; i--){
+                res += b;
+            }
+            res++;
+        }
+        return res;
+    }
+}
