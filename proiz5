@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Введите первый множитель: ");
+        int a = scan.nextInt();
+        System.out.print("Введите второй множитель: ");
+        int b = scan.nextInt();
+        int res = multiply(a, b);
+        System.out.printf("%d * %d = %d", a, b, res);
+    }
+    public static int multiply(int a, int b) {
+      int result = 0;
+      int absA = Math.abs(a);
+      int absB = Math.abs(b);
+      while (absB > 0) {
+          if ((absB & 1) != 0) {
+              result += absA;
+          }
+          absA <<= 1;  
+          absB >>= 1;  
+      }
+      if ((a < 0 && b > 0) || (a > 0 && b < 0)) {
+          return -result;
+      }
+      return result;
+  }
+}
