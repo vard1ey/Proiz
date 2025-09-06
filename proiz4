@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Введите первый множитель: ");
+        double a = scan.nextDouble();
+        System.out.print("Введите второй множитель: ");
+        double b = scan.nextDouble();
+        double res = multiply(a, b);
+        System.out.printf("%d * %d = %d", a, b, res);
+    }
+    public static double multiply(double a, double b) {
+      if (a == 0 || b == 0) return 0;
+      if (a < 0 && b < 0) {
+          return Math.exp(Math.log(-a) + Math.log(-b));
+      }
+      if (a < 0 || b < 0) {
+          return -Math.exp(Math.log(Math.abs(a)) + Math.log(Math.abs(b)));
+      }
+      return Math.exp(Math.log(a) + Math.log(b));
+    }
+}
