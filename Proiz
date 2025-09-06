@@ -6,34 +6,17 @@ public class Main {
         int a = scan.nextInt();
         System.out.print("Введите второй множитель: ");
         int b = scan.nextInt();
-        int res = Proiz(a, b);
+        int res = multiply(a, b);
         System.out.printf("%d * %d = %d", a, b, res);
     }
-    static int  Proiz(int a, int b){
-        int res = a;
-        int i = b;
-        if (a < 0 && b > 0) {
-            for(i = i; i != 0; i--){
-                res -= b;
-            }
-            res--;
+    public static int multiply(int a, int b) {
+        int result = 0;
+        for (int i = 0; i < Math.abs(b); i++) {
+            result += Math.abs(a);
         }
-        else if (b < 0 && a > 0) {
-            for(i = i; i != 0; i++){
-                res += -b;
-            }
-            res++;
-            res = -res;
+        if ((a < 0 && b > 0) || (a > 0 && b < 0)) {
+            return -result;
         }
-        else if (a == 0 || b == 0) {
-            return 0;
-        }
-        else {
-            for (i = i; i != 0; i--){
-                res += b;
-            }
-            res++;
-        }
-        return res;
+        return result;
     }
 }
